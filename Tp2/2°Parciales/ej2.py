@@ -1,18 +1,33 @@
+#Dada una lista A de M numeros, ordenarla de menor a mayor, y luego informar cuantos elementos
+#se encontraban originalmente en su posicion correcta. Consejo: Conservar una copia de la lista
+#original antes de ordenarla.
+
+#Carga de la lista A, tamaño M.
 M=int(input("Ingresar el tamaño de la lista: "))
-i=1
+A=[None]*M
+i=0
 while i<M:
-    A=int(input("Ingresar el elemento de la lista: "))
+    A[i]=int(input("Ingresar el elemento de la lista: "))
     i=i+1
 print("Lista A",A)
-i=1
+
+#Copia de la lista y cuantos elementos se encontraban en su posicion correcta.
+i=0
+contador_posicion_correcta=0
+copia=[None]*M
 while i<M:
-    copia=A
+    copia[i]=A[i]
+    if copia[i]==i:
+        contador_posicion_correcta+=1
     i=i+1
 print("Copia de la lista A",A)
-#for i in range(M):
-#    for j in range(i+1,M):
-#        if A[i]<A[j]:
-#            aux=A[i]
-#            A[i]=A[j]
-#            A[j]=aux
-#print("Ordenado de menor a mayor",A)
+
+#Ordenar de menor a mayor.
+for i in range(M):
+    for j in range(i+1,M):
+        if A[i]>A[j]:
+            aux=A[i]
+            A[i]=A[j]
+            A[j]=aux
+print("Ordenado de menor a mayor",A)
+print("Elementos se encontraban originalmente en su posicion correcta:",contador_posicion_correcta)
