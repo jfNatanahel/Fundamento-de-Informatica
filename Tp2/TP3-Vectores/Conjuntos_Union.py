@@ -1,30 +1,26 @@
-n_a=int(input("Ingresar el tamaño del vector A: "))
-v_a=[None]*n_a
-i=0
-while i<n_a:
-    v_a[i]=int(input("Ingresar elementos del vector: "))
-    i=i+1
-#####
-n_b=int(input("Ingresar el tamaño del vector B: "))
-v_b=[None]*n_b
-j=0
-while j<n_b:
-    v_b[j]=int(input("Ingersar los elementos del vector B: "))
-    j=j+1
-i=0
-j=0
-k=0
-c=[]
-while i<n_a:
+n=int(input("Ingresar el tamaño del vector A: "))
+v_a=[None]*n
+for i in range (n):
+    v_a[i]=int(input("Ingresar elementos del vector A: "))
+m=int(input("Ingresar el tamaño del vector B: "))
+v_b=[None]*m
+for j in range (m):
+    v_b[j]=int(input("Ingresar elementos del vector B: "))
+#Pasar los elementos de A para C.
+c=[]*n
+for i in range(n):
+    c[i]=v_a[i]
+l=n #cantidad del vector n
+
+for j in range(m):
     bandera=0
-    while j<n_b:
+    for i in range(n):
         if v_a[i]==v_b[j]:
-            bandera=1
-        j=j+1
+            bandera=1 #Quiere decir que existen repetidos entre A y B
     if bandera==0:
-        c[k]=v_a[i]
-    i=i+1
-i=0
-while i<=k:
-    print(c[k])
-    i=i+1     
+        l=l+1
+        c[l]=v_b[j]
+
+#Mostrar el Vector union.
+for i in range (l):
+    print(c[i])
