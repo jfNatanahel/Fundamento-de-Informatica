@@ -17,7 +17,7 @@ for i in range(n):
     if bandera==1:
         t=t+1
         c[t-1]=A[i]
-        bandera=0
+        bandera=0 #Reiniciar la bandera para el proximo elemento en el conjunto "A".
         
 print("Interseccion entre A y B")
 for i in range(t):
